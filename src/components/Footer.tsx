@@ -8,14 +8,15 @@ const Footer = () => {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
+    { name: "Team", href: "#team" },
     { name: "Contact", href: "#contact" },
   ];
 
   const socialLinks = [
-    { name: "T", href: "#" },
-    { name: "F", href: "#" },
-    { name: "I", href: "#" },
-    { name: "X", href: "#" },
+    { name: "TikTok", href: "https://www.tiktok.com/@borntoblog?_t=ZM-90lVmL5j05D&_r=1", icon: "T" },
+    { name: "Facebook", href: "https://www.facebook.com/Born2Blog.SL", icon: "F" },
+    { name: "Instagram", href: "https://www.instagram.com/born_to_blog_?igsh=MXZqYnh4ZW54dmVxYQ==", icon: "I" },
+    { name: "X", href: "https://x.com/born2blog232", icon: "X" },
   ];
 
   return (
@@ -38,7 +39,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Empowering youth and businesses to rise to their full digital potential since 2020.
+              Empowering youth and businesses to rise to their full digital potential since 2020. We are open 24/7.
             </p>
           </div>
 
@@ -67,13 +68,17 @@ const Footer = () => {
               Get In Touch
             </h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-muted-foreground text-sm">
-                <Phone className="w-4 h-4 text-primary" />
-                +232 74-116569
+              <li>
+                <a href="tel:+23274116569" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm">
+                  <Phone className="w-4 h-4 text-primary" />
+                  +232 74-116569
+                </a>
               </li>
-              <li className="flex items-center gap-2 text-muted-foreground text-sm">
-                <Mail className="w-4 h-4 text-primary" />
-                borntoblog232@gmail.com
+              <li>
+                <a href="mailto:borntoblog232@gmail.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors text-sm">
+                  <Mail className="w-4 h-4 text-primary" />
+                  borntoblog232@gmail.com
+                </a>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground text-sm">
                 <MapPin className="w-4 h-4 text-primary" />
@@ -86,9 +91,12 @@ const Footer = () => {
                 <a
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
                   className="w-8 h-8 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors text-sm font-medium"
                 >
-                  {social.name}
+                  {social.icon}
                 </a>
               ))}
             </div>

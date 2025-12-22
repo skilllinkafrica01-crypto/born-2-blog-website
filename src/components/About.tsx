@@ -1,15 +1,15 @@
-import { Target, Heart, Lightbulb, Users } from "lucide-react";
+import { Target, Heart, Lightbulb, Users, Calendar } from "lucide-react";
 
 const values = [
   {
     icon: Target,
     title: "Our Mission",
-    description: "Empowering businesses to thrive in the digital age through strategic content creation and social media excellence.",
+    description: "Empowering youth and businesses to rise to their full digital potential through strategic storytelling and online visibility.",
   },
   {
     icon: Heart,
     title: "Our Vision",
-    description: "To be the leading force in transforming how brands connect, engage, and grow their online communities.",
+    description: "To turn ordinary brands into online stars by combining data-driven marketing with creative excellence.",
   },
   {
     icon: Lightbulb,
@@ -44,14 +44,19 @@ const About = () => {
 
         {/* Main Content */}
         <div className="max-w-4xl mx-auto text-center mb-20">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <Calendar className="w-5 h-5 text-primary" />
+            <span className="text-primary font-medium">Founded on March 23, 2020</span>
+          </div>
           <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-8">
-            At <span className="text-primary font-semibold">Born to Blog (B2B)</span>, we're more than just a social media agency — 
-            we're your partners in digital growth. Founded with a passion for storytelling and a deep understanding of 
-            the digital landscape, we help businesses of all sizes achieve their online goals.
+            <span className="text-primary font-semibold">Born to Blog (B2B)</span> is a creative digital and social media agency 
+            dedicated to helping brands grow through strategic storytelling, content, and online visibility. 
+            We turn ordinary brands into online stars by combining data-driven marketing with creative excellence.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Our team of creative strategists, content creators, and social media experts work tirelessly to craft 
-            compelling narratives that resonate with your audience and drive real results.
+            Based in <span className="text-foreground font-medium">Freetown, Sierra Leone</span>, our team of creative strategists, 
+            content creators, and social media experts work tirelessly to craft compelling narratives that resonate 
+            with your audience and drive real results.
           </p>
         </div>
 
@@ -82,20 +87,20 @@ const About = () => {
           ))}
         </div>
 
-        {/* CEO Quote */}
+        {/* Founder Quote */}
         <div className="mt-20 max-w-3xl mx-auto">
           <div className="relative p-8 rounded-3xl bg-gradient-card border border-border">
             <div className="absolute -top-4 left-8 text-6xl text-primary/30 font-serif">"</div>
             <blockquote className="text-lg sm:text-xl text-foreground italic leading-relaxed mb-4 pl-8">
-              Our success is measured by the viral moments we create for our clients. Every brand has a story worth sharing.
+              I founded Born to Blog to empower youth and businesses to rise to their full digital potential. Every brand has a story worth sharing.
             </blockquote>
             <cite className="flex items-center gap-4 not-italic pl-8">
               <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                <span className="text-primary font-bold">AD</span>
+                <span className="text-primary font-bold">SM</span>
               </div>
               <div>
-                <div className="font-semibold text-foreground">Abdulmalik Dahiru</div>
-                <div className="text-sm text-muted-foreground">Founder & CEO, B2B</div>
+                <div className="font-semibold text-foreground">H.E. Sahr Memphis</div>
+                <div className="text-sm text-muted-foreground">Founder & CEO, Born to Blog</div>
               </div>
             </cite>
           </div>

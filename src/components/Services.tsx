@@ -1,49 +1,56 @@
 import { 
-  PenTool, 
   Share2, 
-  BarChart3, 
   Megaphone, 
-  Camera, 
+  TrendingUp, 
+  Video, 
+  PenTool, 
+  Briefcase,
   Palette,
   Check
 } from "lucide-react";
 
 const services = [
   {
-    icon: PenTool,
-    title: "Content Creation",
-    description: "Compelling blog posts, articles, and copy that captivates your audience",
-    features: ["Blog Writing", "Copywriting", "SEO Content", "Email Campaigns"],
-  },
-  {
     icon: Share2,
-    title: "Social Media Management",
-    description: "Strategic management across all major social platforms",
-    features: ["Daily Posting", "Community Management", "Engagement Strategy", "Analytics"],
-  },
-  {
-    icon: BarChart3,
-    title: "Growth Analytics",
-    description: "Data-driven insights to optimize your digital presence",
-    features: ["Performance Tracking", "Audience Insights", "ROI Reports", "Competitor Analysis"],
+    title: "Social Media Marketing",
+    description: "Strategic social media campaigns that boost engagement and brand awareness",
+    features: ["Platform Strategy", "Audience Targeting", "Engagement Growth", "Analytics"],
   },
   {
     icon: Megaphone,
-    title: "Brand Strategy",
-    description: "Build a memorable brand identity that stands out",
-    features: ["Brand Voice", "Messaging", "Positioning", "Guidelines"],
+    title: "Online Promotion",
+    description: "Amplify your brand's reach with targeted online promotional campaigns",
+    features: ["Paid Advertising", "Organic Reach", "Influencer Outreach", "Brand Awareness"],
   },
   {
-    icon: Camera,
-    title: "Visual Content",
-    description: "Eye-catching graphics and videos that stop the scroll",
-    features: ["Graphics Design", "Video Production", "Reels & Stories", "Thumbnails"],
+    icon: TrendingUp,
+    title: "Page Growth",
+    description: "Grow your social media following with proven strategies and tactics",
+    features: ["Follower Growth", "Engagement Boost", "Content Optimization", "Analytics"],
+  },
+  {
+    icon: Video,
+    title: "Event Coverage",
+    description: "Professional coverage for your events across all digital platforms",
+    features: ["Live Coverage", "Photo/Video", "Social Updates", "Post-Event Content"],
+  },
+  {
+    icon: PenTool,
+    title: "Content Creation",
+    description: "Compelling content that captivates your audience and tells your story",
+    features: ["Blog Posts", "Copywriting", "Video Scripts", "Social Content"],
+  },
+  {
+    icon: Briefcase,
+    title: "Business Management",
+    description: "Complete digital business management to streamline your operations",
+    features: ["Digital Strategy", "Brand Management", "Process Optimization", "Consulting"],
   },
   {
     icon: Palette,
-    title: "Creative Campaigns",
-    description: "Viral-worthy campaigns that drive engagement and conversions",
-    features: ["Campaign Strategy", "Influencer Outreach", "Paid Ads", "A/B Testing"],
+    title: "Graphic Designs",
+    description: "Eye-catching visuals that make your brand stand out from the crowd",
+    features: ["Brand Identity", "Social Graphics", "Marketing Materials", "UI/UX Design"],
   },
 ];
 
@@ -73,7 +80,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <div
               key={service.title}
@@ -84,12 +91,12 @@ const Services = () => {
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-orange-glow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
 
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                <service.icon className="w-8 h-8 text-primary" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
+                <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
               </div>
 
               {/* Content */}
-              <h3 className="font-heading text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+              <h3 className="font-heading text-lg sm:text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                 {service.title}
               </h3>
               <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
