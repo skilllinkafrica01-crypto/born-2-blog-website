@@ -1,12 +1,12 @@
-import { Mail, Phone, MapPin, Send, Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 const socialLinks = [
-  { icon: Instagram, label: "Instagram", href: "#" },
-  { icon: Twitter, label: "Twitter", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Facebook, label: "Facebook", href: "#" },
+  { label: "TikTok", href: "https://www.tiktok.com/@borntoblog?_t=ZM-90lVmL5j05D&_r=1", icon: "T" },
+  { label: "Facebook", href: "https://www.facebook.com/Born2Blog.SL", icon: "F" },
+  { label: "Instagram", href: "https://www.instagram.com/born_to_blog_?igsh=MXZqYnh4ZW54dmVxYQ==", icon: "I" },
+  { label: "X", href: "https://x.com/born2blog232", icon: "X" },
 ];
 
 const Contact = () => {
@@ -46,64 +46,76 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="p-8 rounded-2xl bg-gradient-card border border-border">
-              <h3 className="font-heading text-2xl font-bold mb-6 text-foreground">
+            <div className="p-6 sm:p-8 rounded-2xl bg-gradient-card border border-border">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold mb-6 text-foreground">
                 Contact Information
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <a
-                  href="mailto:hello@borntoblog.com"
-                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group"
+                  href="mailto:borntoblog232@gmail.com"
+                  className="flex items-center gap-3 sm:gap-4 text-muted-foreground hover:text-primary transition-colors group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Mail className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                    <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">Email</div>
-                    <div className="font-medium text-foreground">hello@borntoblog.com</div>
+                  <div className="min-w-0">
+                    <div className="text-xs sm:text-sm text-muted-foreground">Email</div>
+                    <div className="font-medium text-foreground text-sm sm:text-base truncate">borntoblog232@gmail.com</div>
                   </div>
                 </a>
 
                 <a
-                  href="tel:+1234567890"
-                  className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group"
+                  href="tel:+23274116569"
+                  className="flex items-center gap-3 sm:gap-4 text-muted-foreground hover:text-primary transition-colors group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <Phone className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Phone</div>
-                    <div className="font-medium text-foreground">+1 (234) 567-890</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Phone</div>
+                    <div className="font-medium text-foreground text-sm sm:text-base">+232 74-116569</div>
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4 text-muted-foreground">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-primary" />
+                <div className="flex items-center gap-3 sm:gap-4 text-muted-foreground">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                   </div>
                   <div>
-                    <div className="text-sm text-muted-foreground">Location</div>
-                    <div className="font-medium text-foreground">Lagos, Nigeria</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Headquarters</div>
+                    <div className="font-medium text-foreground text-sm sm:text-base">Freetown, Sierra Leone</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3 sm:gap-4 text-muted-foreground">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Availability</div>
+                    <div className="font-medium text-foreground text-sm sm:text-base">Open 24/7</div>
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
-              <div className="mt-8 pt-8 border-t border-border">
+              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border">
                 <div className="text-sm text-muted-foreground mb-4">Follow us</div>
                 <div className="flex gap-3">
                   {socialLinks.map((social) => (
                     <a
                       key={social.label}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+                      className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 font-medium"
                     >
-                      <social.icon className="w-5 h-5" />
+                      {social.icon}
                     </a>
                   ))}
                 </div>
