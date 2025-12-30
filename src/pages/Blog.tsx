@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
+import ShareButtons from "@/components/ShareButtons";
 
 const categories = [
   "All",
@@ -230,17 +231,25 @@ const Blog = () => {
                         <span>{formatDate(post.published_at)}</span>
                       </div>
                     </div>
-                    {post.source_url && (
-                      <a
-                        href={post.source_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 flex items-center gap-2 text-primary text-sm hover:underline"
-                      >
-                        Read full article
-                        <ExternalLink size={14} />
-                      </a>
-                    )}
+                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-border">
+                      {post.source_url ? (
+                        <a
+                          href={post.source_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-primary text-sm hover:underline"
+                        >
+                          Read more
+                          <ExternalLink size={14} />
+                        </a>
+                      ) : (
+                        <span />
+                      )}
+                      <ShareButtons 
+                        title={post.title} 
+                        url={post.source_url || window.location.href} 
+                      />
+                    </div>
                   </div>
                 </article>
               ))}
