@@ -1,7 +1,7 @@
 import { Calendar, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 const blogPosts = [
   {
@@ -32,9 +32,10 @@ const blogPosts = [
 
 const BlogSection = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const navigate = useNavigate();
 
   const handleViewArticles = () => {
-    toast.info("Blog section coming soon! Follow us on social media for the latest updates.");
+    navigate("/blog");
   };
 
   return (
