@@ -8,6 +8,7 @@ import {
   Palette,
   Check
 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const services = [
   {
@@ -55,8 +56,16 @@ const services = [
 ];
 
 const Services = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="services" className="py-24 relative overflow-hidden">
+    <section 
+      id="services" 
+      ref={ref}
+      className={`py-24 relative overflow-hidden transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-background to-background" />
       

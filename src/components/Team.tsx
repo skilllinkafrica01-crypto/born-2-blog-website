@@ -1,4 +1,5 @@
 import ceoPhoto from "@/assets/ceo-photo.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const ceo = {
   name: "H.E. Sahr Memphis",
@@ -7,8 +8,16 @@ const ceo = {
 };
 
 const Team = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section id="team" className="py-24 relative overflow-hidden">
+    <section 
+      id="team" 
+      ref={ref}
+      className={`py-24 relative overflow-hidden transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
