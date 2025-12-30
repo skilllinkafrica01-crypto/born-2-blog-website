@@ -1,28 +1,10 @@
-import { Users } from "lucide-react";
+import ceoPhoto from "@/assets/ceo-photo.jpg";
 
-// Team members data - admin can edit this array to add/remove members
-const teamMembers = [
-  {
-    name: "H.E. Sahr Memphis",
-    role: "Founder & CEO",
-    image: "/placeholder.svg",
-  },
-  {
-    name: "Team Member 2",
-    role: "Social Media Manager",
-    image: "/placeholder.svg",
-  },
-  {
-    name: "Team Member 3",
-    role: "Content Creator",
-    image: "/placeholder.svg",
-  },
-  {
-    name: "Team Member 4",
-    role: "Graphic Designer",
-    image: "/placeholder.svg",
-  },
-];
+const ceo = {
+  name: "H.E. Sahr Memphis",
+  role: "Founder & CEO",
+  image: ceoPhoto,
+};
 
 const Team = () => {
   return (
@@ -39,57 +21,47 @@ const Team = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4">
-            Our Team
+            Leadership
           </span>
           <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-6">
-            Meet The <span className="text-gradient">Crew</span>
+            Meet The <span className="text-gradient">Founder</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            The passionate individuals behind Born to Blog who make the magic happen.
+            The visionary leader behind Born to Blog who makes the magic happen.
           </p>
         </div>
 
-        {/* Team Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
-          {teamMembers.map((member, index) => (
-            <div
-              key={member.name}
-              className="group relative rounded-2xl bg-gradient-card border border-border hover:border-primary/50 transition-all duration-500 card-3d overflow-hidden"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Image Container */}
-              <div className="aspect-square relative overflow-hidden">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                
-                {/* Icon placeholder for missing images */}
-                {member.image === "/placeholder.svg" && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-secondary/50">
-                    <Users className="w-12 h-12 sm:w-16 sm:h-16 text-primary/50" />
-                  </div>
-                )}
-              </div>
-
-              {/* Content */}
-              <div className="p-4 sm:p-6 text-center">
-                <h3 className="font-heading text-base sm:text-lg lg:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 truncate">
-                  {member.name}
-                </h3>
-                <p className="text-primary text-xs sm:text-sm mt-1 truncate">
-                  {member.role}
-                </p>
-              </div>
-
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl" />
+        {/* CEO Card - Centered */}
+        <div className="flex justify-center max-w-md mx-auto">
+          <div className="group relative rounded-2xl bg-gradient-card border border-border hover:border-primary/50 transition-all duration-500 card-3d overflow-hidden w-full">
+            {/* Image Container */}
+            <div className="aspect-square relative overflow-hidden">
+              <img
+                src={ceo.image}
+                alt={ceo.name}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
             </div>
-          ))}
+
+            {/* Content */}
+            <div className="p-6 sm:p-8 text-center">
+              <h3 className="font-heading text-xl sm:text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                {ceo.name}
+              </h3>
+              <p className="text-primary text-sm sm:text-base mt-2">
+                {ceo.role}
+              </p>
+              <p className="text-muted-foreground text-sm mt-4 leading-relaxed">
+                A visionary digital leader who founded Born to Blog on March 23, 2020 to empower youth and businesses to rise in their full digital potential.
+              </p>
+            </div>
+
+            {/* Hover glow */}
+            <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl" />
+          </div>
         </div>
 
         {/* Join Team CTA */}
