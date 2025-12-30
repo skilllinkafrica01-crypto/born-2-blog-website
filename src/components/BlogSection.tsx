@@ -1,5 +1,7 @@
 import { Calendar, ArrowRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { toast } from "sonner";
 
 const blogPosts = [
   {
@@ -29,8 +31,20 @@ const blogPosts = [
 ];
 
 const BlogSection = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
+  const handleViewArticles = () => {
+    toast.info("Blog section coming soon! Follow us on social media for the latest updates.");
+  };
+
   return (
-    <section id="blog" className="py-24 relative overflow-hidden">
+    <section 
+      id="blog" 
+      ref={ref}
+      className={`py-24 relative overflow-hidden transition-all duration-1000 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}
+    >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
 
@@ -111,7 +125,12 @@ const BlogSection = () => {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <Button variant="outline-glow" size="lg" className="group">
+          <Button 
+            variant="outline-glow" 
+            size="lg" 
+            className="group"
+            onClick={handleViewArticles}
+          >
             View All Articles
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Button>
