@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
 import ShareButtons from "@/components/ShareButtons";
+import ArticleComments from "@/components/ArticleComments";
 
 const categories = [
   "All",
@@ -250,6 +251,7 @@ const Blog = () => {
                         url={post.source_url || window.location.href} 
                       />
                     </div>
+                    <ArticleComments articleId={post.id} articleTitle={post.title} />
                   </div>
                 </article>
               ))}
