@@ -60,17 +60,17 @@ const ArticleComments = ({ articleId, articleTitle }: ArticleCommentsProps) => {
 
   const fetchComments = async () => {
     setLoading(true);
+    // Use the secure public view that excludes email addresses
     const { data, error } = await supabase
-      .from("comments")
+      .from("comments_public" as any)
       .select("id, author_name, content, created_at")
       .eq("article_id", articleId)
-      .eq("is_approved", true)
       .order("created_at", { ascending: false });
 
     if (error) {
       console.error("Error fetching comments:", error);
     } else {
-      setComments(data || []);
+      setComments((data as unknown as Comment[]) || []);
     }
     setLoading(false);
   };
