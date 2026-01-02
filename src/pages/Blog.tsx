@@ -1,17 +1,20 @@
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Search, ArrowLeft, Calendar, User, Tag, ExternalLink } from "lucide-react";
+import { Search, ArrowLeft, Calendar, User, Tag, ExternalLink, RefreshCw } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { supabase } from "@/integrations/supabase/client";
 import ShareButtons from "@/components/ShareButtons";
 import ArticleComments from "@/components/ArticleComments";
+import { useAuth } from "@/hooks/useAuth";
+import { toast } from "sonner";
 
 const categories = [
   "All",
   "Sierra Leone",
   "World News",
+  "Africa",
   "Politics",
   "Business",
   "Technology",
@@ -40,6 +43,8 @@ const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+  const { isAdmin } = useAuth();
 
   useEffect(() => {
     fetchArticles();
@@ -76,6 +81,25 @@ const Blog = () => {
     setLoading(false);
   };
 
+  const handleRefreshNews = async () => {
+    setRefreshing(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('fetch-news', {
+        body: {}
+      });
+      
+      if (error) throw error;
+      
+      toast.success(`News refreshed! ${data.articlesProcessed} articles fetched.`);
+      fetchArticles();
+    } catch (error: any) {
+      console.error('Error refreshing news:', error);
+      toast.error('Failed to refresh news. Please try again.');
+    } finally {
+      setRefreshing(false);
+    }
+  };
+
   const filteredPosts = useMemo(() => {
     return articles.filter((post) => {
       const matchesSearch =
@@ -105,7 +129,21 @@ const Blog = () => {
             <ArrowLeft size={20} />
             <span className="font-medium">Back to Home</span>
           </Link>
-          <h1 className="font-heading text-xl font-bold text-gradient">B2B News</h1>
+          <div className="flex items-center gap-4">
+            {isAdmin && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleRefreshNews}
+                disabled={refreshing}
+                className="gap-2"
+              >
+                <RefreshCw size={16} className={refreshing ? "animate-spin" : ""} />
+                {refreshing ? "Refreshing..." : "Refresh News"}
+              </Button>
+            )}
+            <h1 className="font-heading text-xl font-bold text-gradient">B2B News</h1>
+          </div>
         </div>
       </header>
 
