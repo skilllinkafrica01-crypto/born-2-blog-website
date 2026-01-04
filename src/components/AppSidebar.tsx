@@ -43,10 +43,10 @@ export function AppSidebar() {
 
   return (
     <>
-      {/* Mobile Toggle Button */}
+      {/* Mobile Toggle Button - Right Side */}
       <button
         onClick={toggleSidebar}
-        className="fixed top-4 left-4 z-[70] p-2 rounded-lg bg-card border border-border shadow-lg lg:hidden"
+        className="fixed top-4 right-4 z-[70] p-2 rounded-lg bg-card border border-border shadow-lg lg:hidden"
         aria-label="Toggle sidebar"
       >
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

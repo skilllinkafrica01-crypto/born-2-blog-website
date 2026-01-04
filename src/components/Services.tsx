@@ -14,44 +14,44 @@ const services = [
   {
     icon: Share2,
     title: "Social Media Marketing",
-    description: "Strategic social media campaigns that boost engagement and brand awareness",
+    description: "Strategic social media campaigns that boost engagement and brand awareness across all major platforms.",
     features: ["Platform Strategy", "Audience Targeting", "Engagement Growth", "Analytics"],
-  },
-  {
-    icon: Megaphone,
-    title: "Online Promotion",
-    description: "Amplify your brand's reach with targeted online promotional campaigns",
-    features: ["Paid Advertising", "Organic Reach", "Influencer Outreach", "Brand Awareness"],
-  },
-  {
-    icon: TrendingUp,
-    title: "Page Growth",
-    description: "Grow your social media following with proven strategies and tactics",
-    features: ["Follower Growth", "Engagement Boost", "Content Optimization", "Analytics"],
-  },
-  {
-    icon: Video,
-    title: "Event Coverage",
-    description: "Professional coverage for your events across all digital platforms",
-    features: ["Live Coverage", "Photo/Video", "Social Updates", "Post-Event Content"],
   },
   {
     icon: PenTool,
     title: "Content Creation",
-    description: "Compelling content that captivates your audience and tells your story",
-    features: ["Blog Posts", "Copywriting", "Video Scripts", "Social Content"],
+    description: "Compelling content that captivates your audience and tells your brand's unique story.",
+    features: ["Blog Posts", "Video Scripts", "Social Content", "Copywriting"],
+  },
+  {
+    icon: Video,
+    title: "Event Coverage",
+    description: "Professional coverage for your events across all digital platforms with live updates.",
+    features: ["Live Coverage", "Photo/Video", "Social Updates", "Post-Event Content"],
+  },
+  {
+    icon: TrendingUp,
+    title: "Page Growth",
+    description: "Grow your social media following with proven strategies and data-driven tactics.",
+    features: ["Follower Growth", "Engagement Boost", "Content Optimization", "Analytics"],
+  },
+  {
+    icon: Megaphone,
+    title: "Online Promotion",
+    description: "Amplify your brand's reach with targeted online promotional campaigns that convert.",
+    features: ["Paid Advertising", "Organic Reach", "Influencer Outreach", "Brand Awareness"],
+  },
+  {
+    icon: Palette,
+    title: "Graphic Design",
+    description: "Eye-catching visuals that make your brand stand out from the competition.",
+    features: ["Brand Identity", "Social Graphics", "Marketing Materials", "UI/UX Design"],
   },
   {
     icon: Briefcase,
     title: "Business Management",
-    description: "Complete digital business management to streamline your operations",
+    description: "Complete digital business management to streamline your operations and maximize efficiency.",
     features: ["Digital Strategy", "Brand Management", "Process Optimization", "Consulting"],
-  },
-  {
-    icon: Palette,
-    title: "Graphic Designs",
-    description: "Eye-catching visuals that make your brand stand out from the crowd",
-    features: ["Brand Identity", "Social Graphics", "Marketing Materials", "UI/UX Design"],
   },
 ];
 
