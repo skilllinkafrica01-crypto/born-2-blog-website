@@ -23,7 +23,7 @@ const DownloadPage = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout fullWidth>
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative py-20 px-4 overflow-hidden">
