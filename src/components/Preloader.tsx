@@ -16,12 +16,9 @@ const Preloader = () => {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center transition-all duration-700 ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center transition-all duration-700 bg-background ${
         isLoading ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
-      style={{
-        background: "radial-gradient(ellipse at center, hsl(200 30% 12%) 0%, hsl(200 25% 8%) 60%, hsl(200 20% 5%) 100%)",
-      }}
     >
       <div className="relative">
         {/* Outer spinning ring */}
