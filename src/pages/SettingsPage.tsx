@@ -15,9 +15,9 @@ const SettingsPage = () => {
   const [autoplay, setAutoplay] = useState(false);
 
   return (
-    <MainLayout>
-      <div className="min-h-screen py-12 px-4">
-        <div className="container mx-auto max-w-3xl">
+    <MainLayout fullWidth>
+      <div className="min-h-screen py-6 px-2 md:px-4">
+        <div className="w-full max-w-full">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
               <span className="text-gradient">Settings</span>

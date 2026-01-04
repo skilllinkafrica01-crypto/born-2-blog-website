@@ -29,9 +29,9 @@ const DonatePage = () => {
   };
 
   return (
-    <MainLayout>
-      <div className="min-h-screen py-12 px-4">
-        <div className="container mx-auto max-w-4xl">
+    <MainLayout fullWidth>
+      <div className="min-h-screen py-6 px-2 md:px-4">
+        <div className="w-full max-w-full">
           {/* Hero */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">

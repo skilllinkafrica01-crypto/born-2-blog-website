@@ -5,15 +5,15 @@ import { Button } from "@/components/ui/button";
 const teamMembers = [
   {
     name: "Mohamed Kamara",
-    image: "/team/mohamed-kamara.jpg", // Replace with your actual image path
+    image: "/team.jpg",
   },
 ];
 
 const TeamPage = () => {
   return (
-    <MainLayout>
-      <div className="min-h-screen py-12 px-4">
-        <div className="container mx-auto max-w-6xl">
+    <MainLayout fullWidth>
+      <div className="min-h-screen py-6 px-2 md:px-4">
+        <div className="w-full max-w-full">
           
           {/* Single Edge-to-Edge Image Card */}
           <div className="flex justify-center">
