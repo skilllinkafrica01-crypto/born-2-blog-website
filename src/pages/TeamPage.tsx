@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const teamMembers = [
   {
     name: "Mohamed Kamara",
-    image: "/public/team.jpg", // Replace with your actual image path
+    image: "/team/mohamed-kamara.jpg", // Replace with your actual image path
   },
 ];
 
