@@ -3,54 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Twitter, Linkedin, Mail } from "lucide-react";
 
+// Updated: Only one team member with an image path provided
 const teamMembers = [
   {
     name: "Mohamed Kamara",
     role: "Founder & CEO",
     bio: "Award-winning journalist with over 15 years of experience in media. Passionate about bringing quality journalism to Sierra Leone.",
-    image: null,
-  },
-  {
-    name: "Fatmata Sesay",
-    role: "Editor-in-Chief",
-    bio: "Former BBC correspondent with expertise in investigative journalism. Leads our editorial team with vision and integrity.",
-    image: null,
-  },
-  {
-    name: "Ibrahim Conteh",
-    role: "Head of Digital",
-    bio: "Tech enthusiast driving our digital transformation. Expert in web development and digital marketing strategies.",
-    image: null,
-  },
-  {
-    name: "Aminata Bangura",
-    role: "Senior Reporter",
-    bio: "Covers politics and governance. Known for her insightful analysis and in-depth coverage of national affairs.",
-    image: null,
-  },
-  {
-    name: "David Koroma",
-    role: "Sports Editor",
-    bio: "Passionate sports journalist covering local and international sports. Brings exciting coverage to sports enthusiasts.",
-    image: null,
-  },
-  {
-    name: "Mariama Jalloh",
-    role: "Features Writer",
-    bio: "Creates compelling human interest stories and cultural features that resonate with our diverse readership.",
-    image: null,
-  },
-  {
-    name: "Abu Bakarr Mansaray",
-    role: "Photographer",
-    bio: "Award-winning photojournalist capturing powerful images that tell stories beyond words.",
-    image: null,
-  },
-  {
-    name: "Isata Williams",
-    role: "Social Media Manager",
-    bio: "Manages our social media presence and community engagement. Expert in digital communication strategies.",
-    image: null,
+    image: "/team/mohamed-kamara.jpg", // Add your image path here
   },
 ];
 
@@ -62,42 +21,52 @@ const TeamPage = () => {
           {/* Hero */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Meet Our <span className="text-gradient">Team</span>
+              Meet Our <span className="text-gradient">Founder</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              A dedicated group of professionals committed to bringing you the best news 
-              and content. Meet the people behind Born to Blog.
+              The visionary behind Born to Blog, committed to bringing you the best news 
+              and content.
             </p>
           </div>
 
-          {/* Team Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Team Grid - Centered for one person */}
+          <div className="flex justify-center">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="bg-card border-border hover:border-primary/50 transition-all duration-300 group overflow-hidden">
+              <Card key={index} className="max-w-sm w-full bg-card border-border hover:border-primary/50 transition-all duration-300 group overflow-hidden">
                 <CardContent className="p-6 text-center">
-                  {/* Avatar */}
-                  <div className="w-24 h-24 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-primary">
-                      {member.name.split(" ").map(n => n[0]).join("")}
-                    </span>
+                  {/* Image/Avatar Section */}
+                  <div className="w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-2 border-primary/20">
+                    {member.image ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center">
+                        <span className="text-3xl font-bold text-primary">
+                          {member.name.split(" ").map(n => n[0]).join("")}
+                        </span>
+                      </div>
+                    )}
                   </div>
                   
-                  <h3 className="font-heading font-bold text-lg mb-1">{member.name}</h3>
+                  <h3 className="font-heading font-bold text-xl mb-1">{member.name}</h3>
                   <p className="text-primary text-sm font-medium mb-3">{member.role}</p>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                  <p className="text-sm text-muted-foreground mb-4">
                     {member.bio}
                   </p>
                   
                   {/* Social Links */}
                   <div className="flex justify-center gap-2">
-                    <Button variant="ghost" size="icon" className="h-8 w-8">
-                      <Twitter className="h-4 w-4" />
+                    <Button variant="ghost" size="icon" className="h-9 w-9">
+                      <Twitter className="h-5 w-5" />
                     </Button>
-                    <Button variant="ghost" size="icon" className="h-8 w-8">
-                      <Linkedin className="h-4 w-4" />
+                    <Button variant="ghost" size="icon" className="h-9 w-9">
+                      <Linkedin className="h-5 w-5" />
                     </Button>
-                    <Button variant="ghost" size="icon" className="h-8 w-8">
-                      <Mail className="h-4 w-4" />
+                    <Button variant="ghost" size="icon" className="h-9 w-9">
+                      <Mail className="h-5 w-5" />
                     </Button>
                   </div>
                 </CardContent>
