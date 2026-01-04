@@ -8,6 +8,7 @@ import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import SEOHead from "@/components/SEOHead";
 
 const contactInfo = [
   { icon: MapPin, title: "Address", content: "123 Media Street, Freetown, Sierra Leone" },
@@ -54,6 +55,10 @@ const ContactPage = () => {
 
   return (
     <MainLayout fullWidth>
+      <SEOHead 
+        title="Contact Us - Born to Blog (B2B)"
+        description="Get in touch with Born to Blog. We'd love to hear from you about your social media and content marketing needs."
+      />
       <div className="min-h-screen py-6 px-2 md:px-4">
         <div className="w-full max-w-full">
           {/* Hero */}

@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Share2, PenTool, Camera, TrendingUp, Megaphone, Palette, Briefcase, ArrowRight, Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 
 const services = [
   {
@@ -52,6 +53,10 @@ const services = [
 const ServicesPage = () => {
   return (
     <MainLayout fullWidth>
+      <SEOHead 
+        title="Our Services - Born to Blog (B2B)"
+        description="Comprehensive digital marketing services including social media marketing, content creation, event coverage, page growth, online promotion, and graphic design."
+      />
       <div className="min-h-screen py-6 px-2 md:px-4">
         <div className="w-full max-w-full">
           {/* Hero */}
