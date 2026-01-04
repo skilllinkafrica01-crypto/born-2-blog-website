@@ -2,6 +2,7 @@ import { MainLayout } from "@/layouts/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download, Smartphone, Shield, Zap, Wifi, Bell, Star, Check } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const features = [
   { icon: Zap, title: "Lightning Fast", description: "Optimized performance for smooth experience" },
@@ -24,6 +25,10 @@ const DownloadPage = () => {
 
   return (
     <MainLayout fullWidth>
+      <SEOHead 
+        title="Download Our App - Born to Blog (B2B)"
+        description="Download the Born to Blog mobile app for Android. Stay updated with the latest news from Sierra Leone with offline reading, push notifications, and more."
+      />
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative py-20 px-4 overflow-hidden">

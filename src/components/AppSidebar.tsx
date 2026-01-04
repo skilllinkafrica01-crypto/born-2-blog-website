@@ -15,6 +15,7 @@ import {
   Heart,
   Menu,
   X,
+  Inbox,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -28,6 +29,7 @@ const navItems = [
   { title: "Services", url: "/services", icon: Briefcase },
   { title: "Team", url: "/team", icon: Users },
   { title: "Contact", url: "/contact", icon: Mail },
+  { title: "Contact Views", url: "/contact-views", icon: Inbox },
   { title: "Support", url: "/support", icon: HelpCircle },
   { title: "Privacy Policy", url: "/privacy", icon: Shield },
   { title: "Terms of Service", url: "/terms", icon: FileText },

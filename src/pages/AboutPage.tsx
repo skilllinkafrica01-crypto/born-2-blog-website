@@ -1,6 +1,7 @@
 import { MainLayout } from "@/layouts/MainLayout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, Eye, Heart, Award, Users, Globe } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const values = [
   { icon: Target, title: "Accuracy", description: "We prioritize factual reporting and thorough fact-checking." },
@@ -19,6 +20,10 @@ const stats = [
 const AboutPage = () => {
   return (
     <MainLayout fullWidth>
+      <SEOHead 
+        title="About Us - Born to Blog (B2B)"
+        description="Learn about Born to Blog, our mission, vision, and the dedicated team bringing you the latest news from Sierra Leone and around the world."
+      />
       <div className="min-h-screen py-6 px-2 md:px-4">
         <div className="w-full max-w-full">
           {/* Hero */}

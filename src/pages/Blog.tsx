@@ -9,6 +9,7 @@ import ShareButtons from "@/components/ShareButtons";
 import ArticleComments from "@/components/ArticleComments";
 import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
+import SEOHead from "@/components/SEOHead";
 
 const categories = [
   "All",
@@ -122,6 +123,10 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Blog - Born to Blog (B2B)"
+        description="Stay informed with the latest news from Sierra Leone and around the world. Breaking news, politics, business, technology, sports, and entertainment."
+      />
       {/* Header */}
       <header className="bg-card/50 backdrop-blur-xl border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
