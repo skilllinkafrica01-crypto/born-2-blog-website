@@ -1,5 +1,6 @@
-import { ArrowRight, Sparkles, Zap, TrendingUp } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, TrendingUp, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.jpg";
 
 const Hero = () => {
@@ -46,17 +47,37 @@ const Hero = () => {
             </p>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto lg:mx-0 animate-slide-up" style={{ animationDelay: "0.3s" }}>
-              Transform your digital presence with our expert content strategies, social media management, and creative blogging solutions.
+              Transform your digital presence with our expert social media marketing, content creation, and business management solutions.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-slide-up" style={{ animationDelay: "0.4s" }}>
-              <Button variant="hero" size="xl" className="group">
-                Start Your Journey
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outline-glow" size="xl">
-                View Our Work
-              </Button>
+              <Link to="/services">
+                <Button variant="hero" size="xl" className="group w-full sm:w-auto">
+                  Explore Services
+                  <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link to="/download">
+                <Button variant="outline-glow" size="xl" className="w-full sm:w-auto gap-2">
+                  <Play className="w-4 h-4" />
+                  Download App
+                </Button>
+              </Link>
+            </div>
+
+            {/* Quick Links */}
+            <div className="flex flex-wrap gap-3 mt-6 justify-center lg:justify-start animate-slide-up" style={{ animationDelay: "0.45s" }}>
+              <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline">
+                Contact Us
+              </Link>
+              <span className="text-muted-foreground/50">•</span>
+              <Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline">
+                Read Blog
+              </Link>
+              <span className="text-muted-foreground/50">•</span>
+              <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline">
+                About Us
+              </Link>
             </div>
 
             {/* Stats */}
@@ -78,7 +99,7 @@ const Hero = () => {
           <div className="relative flex justify-center items-center animate-slide-up" style={{ animationDelay: "0.3s" }}>
             <div className="relative perspective-1000">
               {/* Glow ring */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-orange-glow to-primary animate-spin-slow opacity-30 blur-xl scale-110" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-orange-500 to-primary animate-spin-slow opacity-30 blur-xl scale-110" />
               
               {/* Main logo container with 3D effect */}
               <div className="relative transform-3d hover:rotate-y-12 transition-transform duration-700 group">
