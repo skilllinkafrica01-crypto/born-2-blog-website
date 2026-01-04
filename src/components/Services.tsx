@@ -55,6 +55,63 @@ const services = [
   },
 ];
 
+const ServiceCard = ({ service, index }: { service: typeof services[0]; index: number }) => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  
+  return (
+    <div
+      ref={ref}
+      className={`group relative p-6 rounded-2xl bg-gradient-card border border-border hover:border-primary/50 transition-all duration-500 card-3d overflow-hidden transform ${
+        isVisible 
+          ? "opacity-100 translate-y-0 scale-100" 
+          : "opacity-0 translate-y-8 scale-95"
+      }`}
+      style={{ 
+        transitionDelay: `${index * 100}ms`,
+        transitionDuration: "600ms"
+      }}
+    >
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-orange-glow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+
+      {/* Icon with bounce animation on hover */}
+      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+        <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary group-hover:animate-pulse" />
+      </div>
+
+      {/* Content */}
+      <h3 className="font-heading text-lg sm:text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+        {service.title}
+      </h3>
+      <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
+        {service.description}
+      </p>
+
+      {/* Features with staggered animation */}
+      <ul className="space-y-2">
+        {service.features.map((feature, featureIndex) => (
+          <li 
+            key={feature} 
+            className={`flex items-center gap-2 text-sm text-muted-foreground transform transition-all duration-300 ${
+              isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+            }`}
+            style={{ transitionDelay: `${(index * 100) + (featureIndex * 50) + 200}ms` }}
+          >
+            <Check className="w-4 h-4 text-primary flex-shrink-0" />
+            <span className="group-hover:text-foreground transition-colors duration-300">{feature}</span>
+          </li>
+        ))}
+      </ul>
+
+      {/* Hover glow */}
+      <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl" />
+      
+      {/* Bottom shadow on hover */}
+      <div className="absolute -bottom-2 left-4 right-4 h-8 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+    </div>
+  );
+};
+
 const Services = () => {
   const { ref, isVisible } = useScrollAnimation();
 
@@ -70,20 +127,28 @@ const Services = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-background to-background" />
       
       {/* Decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-primary/5 blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
+      <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-primary/5 blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-primary/5 blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4">
+          <span className={`inline-block px-4 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-sm font-medium mb-4 transform transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+          }`}>
             Our Services
           </span>
-          <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-6">
+          <h2 className={`font-heading text-4xl sm:text-5xl font-bold mb-6 transform transition-all duration-700 delay-100 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+          }`}>
             What We <span className="text-gradient">Offer</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className={`w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8 transform transition-all duration-700 delay-200 ${
+            isVisible ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
+          }`} />
+          <p className={`text-lg text-muted-foreground max-w-2xl mx-auto transform transition-all duration-700 delay-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}>
             Comprehensive digital marketing solutions designed to elevate your brand and accelerate growth.
           </p>
         </div>
@@ -91,40 +156,7 @@ const Services = () => {
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <div
-              key={service.title}
-              className="group relative p-6 rounded-2xl bg-gradient-card border border-border hover:border-primary/50 transition-all duration-500 card-3d overflow-hidden"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Top accent line */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-orange-glow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-
-              {/* Icon */}
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
-                <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
-              </div>
-
-              {/* Content */}
-              <h3 className="font-heading text-lg sm:text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm mb-5 leading-relaxed">
-                {service.description}
-              </p>
-
-              {/* Features */}
-              <ul className="space-y-2">
-                {service.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl" />
-            </div>
+            <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
       </div>
