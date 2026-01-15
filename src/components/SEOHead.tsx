@@ -6,14 +6,16 @@ interface SEOHeadProps {
   image?: string;
   url?: string;
   type?: string;
+  keywords?: string;
 }
 
 const SEOHead = ({
   title = "Born to Blog (B2B) - Top Notch Social Media Agency",
   description = "Born to Blog (B2B) is a top-notch social media agency helping brands grow their online presence with creative content strategies and expert blogging services.",
-  image = "/seo.jpg",
-  url,
+  image = "https://i.imghippo.com/files/Hlxq5703GA.png",
+  url = "https://borntoblog.lovable.app",
   type = "website",
+  keywords = "social media agency, blogging, content strategy, digital marketing, brand growth, online presence, B2B",
 }: SEOHeadProps) => {
   useEffect(() => {
     // Update document title
@@ -35,15 +37,15 @@ const SEOHead = ({
 
     // Standard meta tags
     updateMetaTag("description", description);
+    updateMetaTag("keywords", keywords);
 
     // Open Graph tags
     updateMetaTag("og:title", title, true);
     updateMetaTag("og:description", description, true);
     updateMetaTag("og:image", image, true);
     updateMetaTag("og:type", type, true);
-    if (url) {
-      updateMetaTag("og:url", url, true);
-    }
+    updateMetaTag("og:url", url, true);
+    updateMetaTag("og:site_name", "Born to Blog (B2B)", true);
 
     // Twitter Card tags
     updateMetaTag("twitter:card", "summary_large_image");
@@ -52,18 +54,16 @@ const SEOHead = ({
     updateMetaTag("twitter:image", image);
 
     // Update canonical link
-    if (url) {
-      let canonical = document.querySelector('link[rel="canonical"]');
-      if (canonical) {
-        canonical.setAttribute("href", url);
-      } else {
-        canonical = document.createElement("link");
-        canonical.setAttribute("rel", "canonical");
-        canonical.setAttribute("href", url);
-        document.head.appendChild(canonical);
-      }
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute("href", url);
+    } else {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      canonical.setAttribute("href", url);
+      document.head.appendChild(canonical);
     }
-  }, [title, description, image, url, type]);
+  }, [title, description, image, url, type, keywords]);
 
   return null;
 };
